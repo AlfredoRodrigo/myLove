@@ -325,25 +325,28 @@
 
     // Typewriter
     const tw = document.getElementById('typewriter');
-    let i = 0, j = 0;
+    let i = 0;
 
-    function typeLoop() {
+    function showNextPhrase() {
       const frase = FRASES[i % FRASES.length];
-      tw.textContent = frase.slice(0, j++);
+      tw.textContent = ""; // garante que comece vazio
 
-      if (j <= frase.length) {
-        setTimeout(typeLoop, 60); // tempo entre letras
-      } else {
-        // Depois de terminar de digitar, espera 2s e passa para a próxima frase
-        setTimeout(() => {
-          j = 0;
-          i++;
-          typeLoop();
-        }, 2000);
-      }
+      let j = 0;
+      const interval = setInterval(() => {
+        tw.textContent += frase[j];
+        j++;
+        if (j >= frase.length) {
+          clearInterval(interval);
+          // espera 2s antes de mostrar a próxima
+          setTimeout(() => {
+            i++;
+            showNextPhrase();
+          }, 2000);
+        }
+      }, 60); // velocidade da digitação
     }
 
-    if (!prefersReduced) typeLoop();
+    if (!prefersReduced) showNextPhrase();
     else tw.textContent = FRASES[0];
 
     // Corações flutuantes
@@ -390,4 +393,5 @@
   </script>
 </body>
 </html>
+
 
