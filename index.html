@@ -101,6 +101,59 @@
 
     /* Print */
     @media print{ header, .cta-row, .aside-photo .placeholder small, .audio, .btn, button{display:none !important} body{background:#fff; color:#000} .card{box-shadow:none; border:1px solid #ddd} }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 8px;
+      }
+      main {
+        padding: 16px 4px 32px;
+      }
+      .hero {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+      }
+      .hero-card {
+        padding: 14px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      .subtitle {
+        font-size: 13px;
+      }
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      .stat {
+        padding: 8px;
+      }
+      .section {
+        margin-top: 20px;
+      }
+      .section h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px;
+      }
+      .tile {
+        padding: 8px;
+      }
+      .aside-photo {
+        min-height: 140px;
+      }
+      .modal-header, .modal-body {
+        padding: 6px;
+      }
+      dialog {
+        width: 98vw;
+        padding: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -330,4 +383,5 @@
   </script>
 </body>
 </html>
+
 
